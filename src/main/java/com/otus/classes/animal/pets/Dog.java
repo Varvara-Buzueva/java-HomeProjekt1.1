@@ -4,7 +4,7 @@ import com.otus.classes.animal.Animal;
 
 public class Dog extends Animal {
     @Override
-    public void Say() {
+    protected void say() {
         System.out.println("Гав");
     }
 }

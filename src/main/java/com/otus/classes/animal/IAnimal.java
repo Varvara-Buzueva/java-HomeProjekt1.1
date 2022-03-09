@@ -13,9 +13,4 @@ public interface IAnimal {
 
     int getWeight();
     void setWeight(int weight);
-
-    void Drink();
-    void Eat();
-    void Go ();
-    void Say ();
 }

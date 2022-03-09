@@ -2,13 +2,14 @@ package com.otus.classes.animal;
 
 import java.util.ArrayList;
 
+
 public abstract class Animal implements IAnimal {
 
     private String name ;
     private int age;
     private int weight;
     private String color;
-    private ArrayList<Integer> NumberToDigits(int number) {
+    private ArrayList<Integer> numberToDigits(int number) {
         String n = Integer.toString(number);
         char[] charArray = n.toCharArray();
         ArrayList<Integer> cia = new ArrayList<>();
@@ -20,12 +21,12 @@ public abstract class Animal implements IAnimal {
     }
 
     private int getDecades(){
-        ArrayList<Integer> digits = NumberToDigits(age);
+        ArrayList<Integer> digits = numberToDigits(age);
         return (digits.size() < 2) ? 0 : digits.get(digits.size() - 2);
     }
 
     private int getYears(){
-        ArrayList<Integer> digits = NumberToDigits(age);
+        ArrayList<Integer> digits = numberToDigits(age);
         return digits.get(digits.size() - 1);
     }
 
@@ -57,10 +58,13 @@ public abstract class Animal implements IAnimal {
         this.weight = weight;
     }
 
-    public void Drink() { System.out.println("Я пью"); }
-    public void Eat(){ System.out.println("Я ем"); }
-    public void Go () { System.out.println("Я иду"); }
-    public void Say () { System.out.println("Я говорю"); }
+    /**
+     * Protected-методы определены здесь, а не в интерфейсе, т.к. интерфейс не позволяет оперделять protected-методы.
+     */
+    protected void drink() { System.out.println("Я пью"); }
+    protected void eat(){ System.out.println("Я ем"); }
+    protected void go () { System.out.println("Я иду"); }
+    protected void say () { System.out.println("Я говорю"); }
 
     @Override
     public String toString() {
@@ -72,7 +76,7 @@ public abstract class Animal implements IAnimal {
             age_postfix = switch (year) {
                 case 1 -> "год";
                 case 2, 3, 4 -> "года";
-                case 5, 6, 7, 8, 9 -> "лет";
+                case 5, 6, 7, 8, 9, 0 -> "лет";
                 default -> age_postfix;
             };
         }

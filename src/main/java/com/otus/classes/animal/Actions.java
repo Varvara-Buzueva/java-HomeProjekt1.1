@@ -1,6 +1,5 @@
-package com.otus.classes.animal.actions;
+package com.otus.classes.animal;
 
-import com.otus.classes.animal.Animal;
 import com.otus.classes.animal.birds.Duck;
 import com.otus.classes.animal.data.EAnimalKind;
 import com.otus.classes.animal.pets.Cat;
@@ -11,7 +10,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Actions {
-    private static void generatePet(Animal animal, Scanner scanner) {
+    private void generatePet(Animal animal, Scanner scanner) {
         System.out.println("Введите имя");
         animal.setName(scanner.next());
 
@@ -45,20 +44,20 @@ public class Actions {
             switch (kind) {
                 case CAT -> {
                     newAnimal = new Cat();
-                    generatePet(newAnimal, sc);
+                    this.generatePet(newAnimal, sc);
                 }
                 case DOG -> {
                     newAnimal = new Dog();
-                    generatePet(newAnimal, sc);
+                    this.generatePet(newAnimal, sc);
                 }
                 case DUCK -> {
                     newAnimal = new Duck();
-                    generatePet(newAnimal, sc);
+                    this.generatePet(newAnimal, sc);
                 }
             }
 
             pets.add(newAnimal);
-            pets.get(pets.size() - 1).Say();
+            pets.get(pets.size() - 1).say();
             System.out.println(" в список добавленно " + pets.get(pets.size() - 1).toString());
             break;
         }
@@ -71,5 +70,8 @@ public class Actions {
         }
     }
 
-    public void exit(){ System.out.println("До свидания!"); }
+    public void exit(){
+        System.out.println("До свидания!");
+        System.exit(0);
+    }
 }
